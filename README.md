@@ -14,7 +14,7 @@ Set environment variables:
 - `CF_IMAGES_ACCOUNT_ID` - Cloudflare account ID
 - `CF_IMAGES_CF_IMAGES_TOKEN` - Cloudflare API token
 - `CF_IMAGES_KEY` - Create a CF images key under the Images section of your Cloudflare account
-- `CF_IMAGES_DELIVERY_URL` - Copy the images delivery based url from the Cloudflare images dashboard
+- `CF_IMAGES_DELIVERY_URL` - Copy the images delivery base url from the Cloudflare images dashboard
 
 ## Usage
 Create a variant
