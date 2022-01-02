@@ -1,14 +1,33 @@
 # CloudflareImagesLaravel
+Provides access to Cloudflare Images service for Laravel.
+
+[![Latest Stable Version](http://poser.pugx.org/alexbuckham/cloudflare-images-laravel/v)](https://packagist.org/packages/alexbuckham/cloudflare-images-laravel) [![Total Downloads](http://poser.pugx.org/alexbuckham/cloudflare-images-laravel/downloads)](https://packagist.org/packages/alexbuckham/cloudflare-images-laravel) [![Latest Unstable Version](http://poser.pugx.org/alexbuckham/cloudflare-images-laravel/v/unstable)](https://packagist.org/packages/alexbuckham/cloudflare-images-laravel) [![License](http://poser.pugx.org/alexbuckham/cloudflare-images-laravel/license)](https://packagist.org/packages/alexbuckham/cloudflare-images-laravel) [![PHP Version Require](http://poser.pugx.org/alexbuckham/cloudflare-images-laravel/require/php)](https://packagist.org/packages/alexbuckham/cloudflare-images-laravel)
+
+## Table of contents
+
+* [Installation](#installation)
+* [Configuration](#configuration)
+* [Usage](#usage)
 
 ## Installation
 
-Install the package
+To get the latest version of `CloudflareImagesLaravel`, simply require the project using [Composer](https://getcomposer.org):
 
 ```
 composer install alexbuckham/cloudflare-images-laravel
 ```
 
-\
+Or manually update the `require` block of `composer.json` and run `composer update`.
+
+```json
+{
+    "require": {
+        "alexbuckham/cloudflare-images-laravel": "^0.0.1"
+    }
+}
+```
+
+## Configuration
 Set environment variables:
 
 - `CF_IMAGES_ACCOUNT_ID` - Cloudflare account ID
