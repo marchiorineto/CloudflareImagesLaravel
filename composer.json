@@ -1,6 +1,6 @@
 {
     "name": "alexbuckham/cloudflare-images-laravel",
-    "description": "A simple package to interact with the Cloudflare Images service.",
+    "description": "Provides access to the Cloudflare Images service for Laravel.",
     "keywords": [
       "alexbuckha",
       "cloudflare",
