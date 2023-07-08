@@ -83,7 +83,7 @@ class CloudflareImages
 	 * @return \stdClass
 	 * @throws \GuzzleHttp\Exception\GuzzleException
 	 */
-	public function upload($file, bool $private = false): \stdClass
+	public function upload($file, $filename = null, bool $private = false): \stdClass
 	{
 		$guzzle = new Client([
 			'headers' => [
@@ -94,21 +94,11 @@ class CloudflareImages
 
 		$url = sprintf('https://api.cloudflare.com/client/v4/accounts/%s/%s', $this->account_id, 'images/v1');
 
-		if (is_string($file)) {
-			$file_payload = [
-				'filename' => basename($file),
-				'name'     => 'file',
-				'contents' => file_get_contents($file),
-			];
-		}
-
-		if ($file instanceof UploadedFile) {
-			$file_payload = [
-				'filename' => $file->getClientOriginalName(),
-				'name'     => 'file',
-				'contents' => file_get_contents($file),
-			];
-		}
+		$file_payload = [
+			'filename' => $filename,
+			'name'     => 'file',
+			'contents' => $file,
+		];
 
 		$payload = [
 			$file_payload, [
@@ -122,6 +112,17 @@ class CloudflareImages
 		]);
 
 		return json_decode($response->getBody()->getContents())->result;
+	}
+
+	/**
+	 * @param $file
+	 * @param bool $private
+	 * @return \stdClass
+	 * @throws \GuzzleHttp\Exception\GuzzleException
+	 */
+	public function uploadFromRequest(UploadedFile $file, bool $private = false): \stdClass
+	{
+		$this->upload(file_get_contents($file), $file->getClientOriginalName(), $private);
 	}
 
 	/**
