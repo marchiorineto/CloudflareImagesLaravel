@@ -122,7 +122,7 @@ class CloudflareImages
 	 */
 	public function uploadFromRequest(UploadedFile $file, bool $private = false): \stdClass
 	{
-		$this->upload(file_get_contents($file), $file->getClientOriginalName(), $private);
+		return $this->upload(file_get_contents($file), $file->getClientOriginalName(), $private);
 	}
 
 	/**
