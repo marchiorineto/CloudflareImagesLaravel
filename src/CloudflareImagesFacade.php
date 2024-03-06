@@ -1,5 +1,5 @@
 <?php
-namespace AlexBuckham\CloudflareImagesLaravel\Facades;
+namespace MarchioriNeto\CloudflareImagesLaravel\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

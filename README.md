@@ -14,7 +14,7 @@ Provides access to Cloudflare Images service for Laravel.
 To get the latest version of `CloudflareImagesLaravel`, simply require the project using [Composer](https://getcomposer.org):
 
 ```
-composer require alexbuckham/cloudflare-images-laravel
+composer require marchiorineto/cloudflare-images-laravel
 ```
 
 Or manually update the `require` block of `composer.json` and run `composer update`.
@@ -22,7 +22,7 @@ Or manually update the `require` block of `composer.json` and run `composer upda
 ```json
 {
     "require": {
-        "alexbuckham/cloudflare-images-laravel": "^0.0.1"
+        "marchiorineto/cloudflare-images-laravel": "^0.0.1"
     }
 }
 ```
@@ -39,8 +39,8 @@ Set environment variables:
 Create a variant
 
 ```php
-use AlexBuckham\CloudflareImagesLaravel\CloudflareImages;
-use AlexBuckham\CloudflareImagesLaravel\ImageVariant;
+use MarchioriNeto\CloudflareImagesLaravel\CloudflareImages;
+use MarchioriNeto\CloudflareImagesLaravel\ImageVariant;
 
 $variant = new ImageVariant('tiny');
 $variant->fit('contain')
@@ -54,7 +54,7 @@ $cfImages->createVariant($variant);
 
 Upload an image
 ```php
-use AlexBuckham\CloudflareImagesLaravel\CloudflareImages;
+use MarchioriNeto\CloudflareImagesLaravel\CloudflareImages;
 
 $cfImages = new CloudflareImages();
 // Pass either a file path or a file resource as the first parameter.
@@ -64,7 +64,7 @@ $cfImages->upload('/path/to/image.jpg', true);
 
 Generate a signed URL
 ```php
-use AlexBuckham\CloudflareImagesLaravel\CloudflareImages;
+use MarchioriNeto\CloudflareImagesLaravel\CloudflareImages;
 
 $cfImages = new CloudflareImages();
 $cfImages->getSignedUrl('image-uuid', new DateTime('+1 day'));
@@ -74,7 +74,11 @@ Overriding configuration
 
 You can override the environment variables by passing new properties to the `CloudflareImages` constructor.
 ```php
-use AlexBuckham\CloudflareImagesLaravel\CloudflareImages;
+use MarchioriNeto\CloudflareImagesLaravel\CloudflareImages;
 
 $cfImages = new CloudflareImages('CLOUDFLARE_IMAGES_ACCOUNT', 'CF_IMAGES_CLOUDFLARE_API_TOKEN', 'CLOUDFLARE_IMAGES_KEY', 'CLOUDFLARE_IMAGES_DELIVERY_URL');
 ```
+
+## Based on
+
+work from [https://github.com/alexbuckham/CloudflareImagesLaravel](https://github.com/alexbuckham/CloudflareImagesLaravel)

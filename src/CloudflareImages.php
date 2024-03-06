@@ -1,6 +1,6 @@
 <?php
 
-namespace AlexBuckham\CloudflareImagesLaravel;
+namespace MarchioriNeto\CloudflareImagesLaravel;
 
 use GuzzleHttp\Client;
 use Illuminate\Http\UploadedFile;

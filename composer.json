@@ -1,42 +1,36 @@
 {
-    "name": "alexbuckham/cloudflare-images-laravel",
-    "description": "Provides access to the Cloudflare Images service for Laravel.",
-    "keywords": [
-      "alexbuckha",
-      "cloudflare",
-      "images",
-      "php",
-      "laravel"
-    ],
-    "authors": [
-        {
-            "name": "Alex Buckham",
-            "email": "alexbuckham@me.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "license": "MIT",
-    "require": {
-        "php": "^8.2",
-        "guzzlehttp/guzzle": "^7.0"
-    },
-    "require-dev": {
-        "orchestra/testbench": "^6.0",
-        "phpunit/phpunit": "^9.3"
-    },
-    "autoload": {
-        "psr-4": {
-            "AlexBuckham\\CloudflareImagesLaravel\\": "src/"
-        }
-    },
-    "config": {
-        "sort-packages": true
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "AlexBuckham\\CloudflareImagesLaravel\\CloudflareImagesProvider"
-            ]
-        }
+  "name": "marchiorineto/cloudflare-images-laravel",
+  "description": "Provides access to the Cloudflare Images service for Laravel.",
+  "keywords": ["cloudflare", "images", "php", "laravel"],
+  "authors": [
+    {
+      "name": "Mauro Marchiori",
+      "email": "mauro@marchiorineto.com.br"
     }
+  ],
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "require": {
+    "php": "^8.2",
+    "guzzlehttp/guzzle": "^7.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^6.0",
+    "phpunit/phpunit": "^9.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "MarchioriNeto\\CloudflareImagesLaravel\\": "src/"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "MarchioriNeto\\CloudflareImagesLaravel\\CloudflareImagesProvider"
+      ]
+    }
+  }
 }
