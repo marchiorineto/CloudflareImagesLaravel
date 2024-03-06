@@ -52,23 +52,29 @@ class CloudflareImages
 
 	/**
 	 * @param string $uuid
-	 * @param \DateTime $expires_at
+	 * @param string $variant
+	 * @param \DateTime|null $expires_at
 	 * @return string
 	 * @throws \Exception
 	 */
-	public function getSignedUrl(string $uuid, \DateTime $expires_at): string
+	public function getSignedUrl(string $uuid, string $variant, \DateTime $expires_at = null): string
 	{
 		if (!$this->key) {
 			throw new \Exception('A key must be provided in the constructor.');
 		}
 
-		$expiry = $expires_at->getTimestamp();
-		$url = $this->delivery_url . "${uuid}?exp=$expiry";
+		if (!in_array($variant, array_keys(config('cloudflare-images.variants')))) {
+			throw new \Exception('Variant not found.');
+		}
 
-		$to_sign = \Str::replace(['https://imagedelivery.net', 'http://imagedelivery.net'], '', $url);
+		$expiry = $expires_at ? $expires_at->getTimestamp() : now()->addDay()->timestamp;
+		$to_sign = '/' . config('cloudflare-images.account_hash') . "/{$uuid}/{$variant}?exp=$expiry";
+
 		$signature = hash_hmac('sha256', $to_sign, $this->key);
 
-		return $url . "&sig=$signature";
+		$base_url = config('cloudflare-images.custom_domain') ? config('cloudflare-images.custom_domain') . '/cdn-cgi/imagedelivery' : 'imagedelivery.net';
+
+		return 'https://' . $base_url . $to_sign . "&sig=$signature";
 	}
 
 	/**
@@ -77,7 +83,7 @@ class CloudflareImages
 	 * @return \stdClass
 	 * @throws \GuzzleHttp\Exception\GuzzleException
 	 */
-	public function upload($file, bool $private = false): \stdClass
+	public function upload($file, $filename = null, bool $private = false): \stdClass
 	{
 		$guzzle = new Client([
 			'headers' => [
@@ -88,21 +94,11 @@ class CloudflareImages
 
 		$url = sprintf('https://api.cloudflare.com/client/v4/accounts/%s/%s', $this->account_id, 'images/v1');
 
-		if (is_string($file)) {
-			$file_payload = [
-				'filename' => basename($file),
-				'name'     => 'file',
-				'contents' => file_get_contents($file),
-			];
-		}
-
-		if ($file instanceof UploadedFile) {
-			$file_payload = [
-				'filename' => $file->getClientOriginalName(),
-				'name'     => 'file',
-				'contents' => file_get_contents($file),
-			];
-		}
+		$file_payload = [
+			'filename' => $filename,
+			'name'     => 'file',
+			'contents' => $file,
+		];
 
 		$payload = [
 			$file_payload, [
@@ -116,6 +112,17 @@ class CloudflareImages
 		]);
 
 		return json_decode($response->getBody()->getContents())->result;
+	}
+
+	/**
+	 * @param $file
+	 * @param bool $private
+	 * @return \stdClass
+	 * @throws \GuzzleHttp\Exception\GuzzleException
+	 */
+	public function uploadFromRequest(UploadedFile $file, bool $private = false): \stdClass
+	{
+		return $this->upload(file_get_contents($file), $file->getClientOriginalName(), $private);
 	}
 
 	/**
