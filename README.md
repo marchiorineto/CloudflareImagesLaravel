@@ -22,7 +22,7 @@ Or manually update the `require` block of `composer.json` and run `composer upda
 ```json
 {
     "require": {
-        "marchiorineto/cloudflare-images-laravel": "^0.0.1"
+        "marchiorineto/cloudflare-images-laravel": "^1.0.0"
     }
 }
 ```
@@ -76,7 +76,7 @@ You can override the environment variables by passing new properties to the `Clo
 ```php
 use MarchioriNeto\CloudflareImagesLaravel\CloudflareImages;
 
-$cfImages = new CloudflareImages('CLOUDFLARE_IMAGES_ACCOUNT', 'CF_IMAGES_CLOUDFLARE_API_TOKEN', 'CLOUDFLARE_IMAGES_KEY', 'CLOUDFLARE_IMAGES_DELIVERY_URL');
+$cfImages = new CloudflareImages('CLOUDFLARE_IMAGES_ACCOUNT', 'CLOUDFLARE_API_TOKEN', 'CLOUDFLARE_IMAGES_KEY', 'CLOUDFLARE_IMAGES_DELIVERY_URL');
 ```
 
 ## Based on
