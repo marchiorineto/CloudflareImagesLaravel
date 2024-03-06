@@ -14,7 +14,7 @@ Provides access to Cloudflare Images service for Laravel.
 To get the latest version of `CloudflareImagesLaravel`, simply require the project using [Composer](https://getcomposer.org):
 
 ```
-composer install alexbuckham/cloudflare-images-laravel
+composer require alexbuckham/cloudflare-images-laravel
 ```
 
 Or manually update the `require` block of `composer.json` and run `composer update`.
@@ -30,10 +30,10 @@ Or manually update the `require` block of `composer.json` and run `composer upda
 ## Configuration
 Set environment variables:
 
-- `CF_IMAGES_ACCOUNT_ID` - Cloudflare account ID
-- `CF_IMAGES_CF_IMAGES_TOKEN` - Cloudflare API token
-- `CF_IMAGES_KEY` - Create a CF images key under the Images section of your Cloudflare account
-- `CF_IMAGES_DELIVERY_URL` - Copy the images delivery base url from the Cloudflare images dashboard
+- `CLOUDFLARE_IMAGES_ACCOUNT` - Cloudflare account ID
+- `CLOUDFLARE_API_TOKEN` - Cloudflare API token
+- `CLOUDFLARE_IMAGES_KEY` - Create a CF images key under the Images section of your Cloudflare account
+- `CLOUDFLARE_IMAGES_DELIVERY_URL` - Copy the images delivery base url from the Cloudflare images dashboard
 
 ## Usage
 Create a variant
@@ -76,5 +76,5 @@ You can override the environment variables by passing new properties to the `Clo
 ```php
 use AlexBuckham\CloudflareImagesLaravel\CloudflareImages;
 
-$cfImages = new CloudflareImages('CF_IMAGES_ACCOUNT_ID', 'CF_IMAGES_CF_IMAGES_TOKEN', 'CF_IMAGES_KEY', 'CF_IMAGES_DELIVERY_URL');
+$cfImages = new CloudflareImages('CLOUDFLARE_IMAGES_ACCOUNT', 'CF_IMAGES_CLOUDFLARE_API_TOKEN', 'CLOUDFLARE_IMAGES_KEY', 'CLOUDFLARE_IMAGES_DELIVERY_URL');
 ```
