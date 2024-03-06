@@ -1,7 +1,7 @@
 # CloudflareImagesLaravel
 Provides access to Cloudflare Images service for Laravel.
 
-[![Latest Stable Version](http://poser.pugx.org/alexbuckham/cloudflare-images-laravel/v)](https://packagist.org/packages/alexbuckham/cloudflare-images-laravel) [![Total Downloads](http://poser.pugx.org/alexbuckham/cloudflare-images-laravel/downloads)](https://packagist.org/packages/alexbuckham/cloudflare-images-laravel) [![Latest Unstable Version](http://poser.pugx.org/alexbuckham/cloudflare-images-laravel/v/unstable)](https://packagist.org/packages/alexbuckham/cloudflare-images-laravel) [![License](http://poser.pugx.org/alexbuckham/cloudflare-images-laravel/license)](https://packagist.org/packages/alexbuckham/cloudflare-images-laravel) [![PHP Version Require](http://poser.pugx.org/alexbuckham/cloudflare-images-laravel/require/php)](https://packagist.org/packages/alexbuckham/cloudflare-images-laravel)
+[![Latest Stable Version](http://poser.pugx.org/marchiorineto/cloudflare-images-laravel/v)](https://packagist.org/packages/marchiorineto/cloudflare-images-laravel) [![Total Downloads](http://poser.pugx.org/marchiorineto/cloudflare-images-laravel/downloads)](https://packagist.org/packages/marchiorineto/cloudflare-images-laravel) [![Latest Unstable Version](http://poser.pugx.org/marchiorineto/cloudflare-images-laravel/v/unstable)](https://packagist.org/packages/marchiorineto/cloudflare-images-laravel) [![License](http://poser.pugx.org/marchiorineto/cloudflare-images-laravel/license)](https://packagist.org/packages/marchiorineto/cloudflare-images-laravel) [![PHP Version Require](http://poser.pugx.org/marchiorineto/cloudflare-images-laravel/require/php)](https://packagist.org/packages/marchiorineto/cloudflare-images-laravel)
 
 ## Table of contents
 
